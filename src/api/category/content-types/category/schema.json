@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "category",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "state": {
+      "type": "boolean"
+    },
+    "city": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::city.city",
+      "inversedBy": "categories"
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service",
+      "mappedBy": "category"
+    },
+    "lender": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::lender.lender",
+      "inversedBy": "categories"
+    },
+    "provinces": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::province.province",
+      "inversedBy": "categories"
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    }
+  }
+}

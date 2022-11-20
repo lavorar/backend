@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lenders",
+  "info": {
+    "singularName": "lender",
+    "pluralName": "lenders",
+    "displayName": "lender"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_lender": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "lender"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category",
+      "mappedBy": "lender"
+    },
+    "service": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::service.service",
+      "inversedBy": "lender"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "lender"
+    }
+  }
+}
