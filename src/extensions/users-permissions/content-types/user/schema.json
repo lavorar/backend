@@ -68,23 +68,11 @@
       "relation": "oneToMany",
       "target": "api::category.category"
     },
-    "service_recruiter": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::service.service",
-      "mappedBy": "users_recruiter"
-    },
     "lender": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::lender.lender",
       "inversedBy": "users_lender"
-    },
-    "reviews": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::review.review",
-      "mappedBy": "users_review_creator"
     },
     "phone": {
       "type": "biginteger"
@@ -117,7 +105,7 @@
     "Slug": {
       "type": "uid",
       "targetField": "name",
-      "minLength": 1
+      "required": false
     },
     "profile_pic": {
       "type": "media",
@@ -135,6 +123,66 @@
     },
     "avatar": {
       "type": "string"
+    },
+    "ratings_reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::ratings.review",
+      "mappedBy": "user"
+    },
+    "averageScore": {
+      "type": "decimal",
+      "default": 0
+    },
+    "countsReview": {
+      "type": "integer",
+      "default": 0
+    },
+    "notifications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::notification.notification",
+      "mappedBy": "user"
+    },
+    "notifications_requested": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::notification.notification",
+      "mappedBy": "user_request"
+    },
+    "service_recruiters": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service",
+      "mappedBy": "users_recruiter"
+    },
+    "lenders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service",
+      "mappedBy": "lender"
+    },
+    "description": {
+      "type": "richtext",
+      "maxLength": 2000
+    },
+    "conversations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::conversation.conversation",
+      "mappedBy": "members"
+    },
+    "followers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::follower.follower",
+      "mappedBy": "followerUser"
+    },
+    "followings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::follower.follower",
+      "mappedBy": "followingUser"
     }
   }
 }

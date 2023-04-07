@@ -1,0 +1,38 @@
+{
+    "kind": "collectionType",
+    "collectionName": "r_content_ids",
+    "info": {
+        "singularName": "r-content-id",
+        "pluralName": "r-content-ids",
+        "displayName": "RContentID"
+    },
+    "options": {
+        "draftAndPublish": false,
+        "comment": ""
+    },
+    "pluginOptions": {
+        "content-manager": {
+            "visible": true
+        },
+        "content-type-builder": {
+            "visible": true
+        }
+    },
+    "attributes": {
+        "reviews": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "plugin::ratings.review",
+            "mappedBy": "related_to",
+            "configurable": true
+        },
+        "average": {
+            "type": "decimal",
+            "configurable": true
+        },
+        "slug": {
+            "type": "string",
+            "configurable": true
+        }
+    }
+}

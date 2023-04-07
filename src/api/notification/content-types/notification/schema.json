@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notifications",
+  "info": {
+    "singularName": "notification",
+    "pluralName": "notifications",
+    "displayName": "Notification",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "notifications"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Hire",
+        "Comment",
+        "Review",
+        "Reply",
+        "Message",
+        "FriendRequest"
+      ]
+    },
+    "read": {
+      "type": "boolean",
+      "default": false
+    },
+    "acepted": {
+      "type": "boolean"
+    },
+    "rejected": {
+      "type": "boolean",
+      "default": false
+    },
+    "user_request": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "notifications_requested"
+    },
+    "canceled": {
+      "type": "boolean",
+      "default": false
+    },
+    "review": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::ratings.review",
+      "inversedBy": "notifications"
+    },
+    "score": {
+      "type": "integer"
+    },
+    "comment": {
+      "type": "text"
+    },
+    "review_updatedAt": {
+      "type": "datetime"
+    },
+    "followerRequest": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::follower.follower",
+      "inversedBy": "notification"
+    }
+  }
+}

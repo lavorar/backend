@@ -26,21 +26,21 @@
     },
     "lender": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::lender.lender",
-      "inversedBy": "service"
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "lenders"
     },
     "users_recruiter": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "service_recruiter"
+      "inversedBy": "service_recruiters"
     },
-    "review": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::review.review",
-      "inversedBy": "service"
+    "start_date": {
+      "type": "datetime"
+    },
+    "acepted": {
+      "type": "boolean"
     }
   }
 }

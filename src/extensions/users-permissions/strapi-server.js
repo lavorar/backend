@@ -4,19 +4,27 @@ module.exports = (plugin) => {
 
     /*******************************  CUSTOM CONTROLERS  ********************************/
     plugin.controllers.user.updateLoggedInUser = async (ctx) => {
-        await strapi.query('plugin::users-permissions.user').update({
+        console.log(ctx.request.body.data)
+        const user = await strapi.query('plugin::users-permissions.user').update({
             where: { id: ctx.state.user.id },
-            data: ctx.request.body.data
-        }).then((res) => {
-            ctx.response.status = 200;
+            data: ctx.request.body.data,
+            populate: {
+                categories: true,
+                provincia: true,
+                localidad: true,
+                notifications: true,
+                role: true,
+            },
         })
+
+        ctx.body = { user }
     }
 
     /*******************************  CUSTOM ROUTES  ********************************/
     plugin.routes["content-api"].routes.push(
         {
             method: "POST",
-            path: "/user/updateLoggedInUser",
+            path: "/user/updateLoggedInUser/:id",
             handler: "user.updateLoggedInUser",
             config: {
                 prefix: "",

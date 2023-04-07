@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_chat_members",
+  "info": {
+    "displayName": "members",
+    "icon": "book-open",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "members": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

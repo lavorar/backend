@@ -18,11 +18,11 @@
     "state": {
       "type": "boolean"
     },
-    "city": {
+    "cities": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::city.city",
-      "inversedBy": "categories"
+      "mappedBy": "categories"
     },
     "services": {
       "type": "relation",

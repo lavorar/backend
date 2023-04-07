@@ -22,18 +22,6 @@
       "relation": "oneToMany",
       "target": "api::category.category",
       "mappedBy": "lender"
-    },
-    "service": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::service.service",
-      "inversedBy": "lender"
-    },
-    "reviews": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::review.review",
-      "mappedBy": "lender"
     }
   }
 }

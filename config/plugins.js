@@ -1,17 +1,20 @@
 module.exports = ({ env }) => ({
     // ...
     slugify: {
-        enabled: true,
+        enabled: false,
         config: {
             contentTypes: {
-                user: {
+                users: {
                     field: 'Slug',
-                    references: 'name',                    
-                },                
+                    references: 'name',
+                    slugifyWithCount: true,
+                    shouldUpdateSlug: true,
+                },
             },
-            slugifyWithCount: true,
-            shouldUpdateSlug: true,            
+
         },
     },
-    // ...
+    "custom-api": {
+        enabled: true,
+    },
 });

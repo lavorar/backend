@@ -15,12 +15,6 @@
     "name": {
       "type": "string"
     },
-    "categories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::category.category",
-      "mappedBy": "city"
-    },
     "users": {
       "type": "relation",
       "relation": "oneToMany",
@@ -39,6 +33,12 @@
     "slug": {
       "type": "string",
       "required": true
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "cities"
     }
   }
 }
