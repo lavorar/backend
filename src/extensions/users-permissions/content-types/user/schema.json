@@ -115,6 +115,15 @@
         "images"
       ]
     },
+    "cbu_mercadopago": {
+      "type": "string"
+    },
+    "cuit": {
+      "type": "string"
+    },
+    "dni": {
+      "type": "string"
+    },
     "firstName": {
       "type": "string"
     },
