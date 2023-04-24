@@ -46,6 +46,15 @@
       "type": "uid",
       "targetField": "name",
       "required": true
+    },
+    "id_parent": {
+      "type": "integer"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "path": {
+      "type": "string"
     }
   }
 }

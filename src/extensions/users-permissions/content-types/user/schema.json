@@ -192,6 +192,9 @@
       "relation": "oneToMany",
       "target": "api::follower.follower",
       "mappedBy": "followingUser"
+    },
+    "address": {
+      "type": "string"
     }
   }
 }
