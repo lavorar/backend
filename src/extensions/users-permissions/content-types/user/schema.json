@@ -75,7 +75,7 @@
       "inversedBy": "users_lender"
     },
     "phone": {
-      "type": "biginteger"
+      "type": "string"
     },
     "is_lender": {
       "type": "boolean"
